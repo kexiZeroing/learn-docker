@@ -1,7 +1,7 @@
 version: '3'
 services:
   # my-app:
-  #   image: ${docker-registry}/my-app:1.0
+  #   image: ${docker-private-registry}/my-app:1.0
   #   ports:
   #     - 3000:3000
   mongodb:
@@ -11,6 +11,9 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongo-data:/data/db
+      # var/lib/mysql for MySQL, var/lib/postgresql/data for postgreSQL
   mongo-express:
     image: mongo-express
     ports:
@@ -19,3 +22,6 @@ services:
       - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
       - ME_CONFIG_MONGODB_ADMINPASSWORD=password
       - ME_CONFIG_MONGODB_SERVER=mongodb
+volumes:
+  mongo-data:
+    driver: local

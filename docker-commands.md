@@ -6,6 +6,7 @@ docker ps -a
 docker run [image]  
 docker start [container]  
 docker stop [container]  
+docker stop $(docker ps -a)  
 docker images  
 docker pull [image]:[tag]  
 docker rm [container]  
@@ -34,7 +35,7 @@ docker run -d \\
 --name mongo-express \\  
 mongo-express
 
-### check logs or into the container
+### check logs or container's virtual file system
 docker logs [container]  
 docker logs [container] | tail  
 docker exec -it [container] /bin/sh
@@ -45,3 +46,13 @@ docker-compose -f docker-compose.yaml down
 
 ### docker build images
 docker build -t my-app:1.0 .
+
+### push to private repository
+> DockerHub is the default registry, only need the name of docker images
+
+docker push xxx.amazonaws.com/my-app:1.0  
+docker tag my-app:1.1 xxx.amazonaws.com/my-app:1.1  
+docker push xxx.amazonaws.com/my-app:1.1  
+
+### deploy images to server
+The server needs to login to pull from a private repository. Login not needed for public DockerHub. The docker-compose file would be used on the server to deploy all the apps/services.

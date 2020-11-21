@@ -8,6 +8,7 @@ docker start [container]
 docker stop [container]  
 docker stop $(docker ps -a)  
 docker images  
+docker search [image]  
 docker pull [image]:[tag]  
 docker rm [container]  
 docker rmi [image]  

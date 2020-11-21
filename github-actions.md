@@ -24,3 +24,55 @@ Workflows get executed on Github servers and all managed by Github. Each job in 
 ```
 
 > username and password are created in the Github repo Settings - Secrets - New secret.
+
+## YAML file
+Configuration files for DevOps tools are all written in YAML. It's a standard format to transfer data (human-readable). YAML stands for "YAML Ain't Markup Language". 
+
+```yaml
+# key-val pair
+# boolean value can be true/false, yes/no, on/off
+app: user-auth
+port: 9000
+version: 1.0
+deployed: on
+
+# object
+microservice:
+  app: user-auth
+  port: 9000
+  version: 1.0
+
+# list
+microservices:
+  - app: user-auth
+    port: 9000
+    version: 1.0
+  - app: shopping-card
+    port: 9002
+    versions: [1.0, 1.1]
+
+# another way for list indention
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: nginx-vol
+      mountPath: /usr/nginx/html
+
+# multi-line string
+multiline: |
+  this is the first line
+  this is the second line
+  next line
+
+oneline: >
+  this is a single line string,
+  and should be all in one line.
+
+# env variable
+command: 
+  - mysql -h 127.0.0.1 -u root -p $MYSQL_ROOT_PASSWORD
+```

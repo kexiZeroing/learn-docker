@@ -4,6 +4,7 @@
 docker ps  
 docker ps -a  
 docker run [image]  
+docker run -d -p 9000:80 nginx:1.23  
 docker start [container]  
 docker stop [container]  
 docker stop $(docker ps -a)  
@@ -46,6 +47,7 @@ docker-compose -f docker-compose.yaml up
 docker-compose -f docker-compose.yaml down
 
 ### docker build images
+docker build -t [name:tag] [location of Dockerfile]
 docker build -t my-app:1.0 .
 
 ### push to private repository

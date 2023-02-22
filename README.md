@@ -2,9 +2,10 @@
 
 This repo contains a very basic node.js app and is used to learn docker and CI/CD.
 
-- Docker Tutorial: https://www.youtube.com/watch?v=gAkwW2tuIqE
 - Docker Crash Course: https://www.youtube.com/watch?v=pg19Z8LL06w
-- Github Actions Tutorial: https://www.youtube.com/watch?v=eB0nUzAI7M8
+- Kubernetes Crash Course: https://www.youtube.com/watch?v=s_o8dwzRlu4
+- GitLab CI CD Tutorial: https://www.youtube.com/watch?v=qP8kir2GUgo
+- GitHub Actions Tutorial: https://www.youtube.com/watch?v=R8_veQiYBjI
 
 ## Docker Desktop
 Docker Engine is the core product of Docker, including its daemon (dockerd) as well as its CLI (docker). 

@@ -8,6 +8,7 @@ docker run -d -p 9000:80 nginx:1.23
 docker start [container]  
 docker stop [container]  
 docker stop $(docker ps -a)  
+docker ps -aq | xargs docker stop | xargs docker rm  
 docker images  
 docker search [image]  
 docker pull [image]:[tag]  
@@ -59,3 +60,15 @@ docker push xxx.amazonaws.com/my-app:1.1
 
 ### deploy images to server
 The server needs to login to pull from a private repository. Login not needed for public DockerHub. The docker-compose file would be used on the server to deploy all the apps/services.
+
+## Docker Desktop
+Docker Engine is the core product of Docker, including its daemon (dockerd) as well as its CLI (docker). 
+
+[Docker desktop](https://docs.docker.com/desktop) for both mac and windows is using a Linux virtual machine behind the scenes for running regular docker daemon. Docker Desktop can be used either on it’s own or as a complementary tool to the CLI.
+
+## Leverage build cache
+Docker images consist of layers. When building an image, Docker steps through the instructions in your Dockerfile, executing each in the order specified. As each instruction is examined, Docker looks for an existing image in its cache that it can reuse, rather than creating a new, duplicate image.
+
+For the `ADD` and `COPY` instructions, the contents of each file in the image are examined and a checksum is calculated for each file. Aside from the `ADD` and `COPY` commands, just the command string itself is used to find a match. Once the cache is invalidated, all subsequent Dockerfile commands generate new images and the cache isn’t used.
+
+> For example, Dockerfile copies `package.json`, `package-lock.json` then runs install, and finally copies the rest of the application. This way, `RUN npm install` is only re-executed if the `package.json` or `package-lock.json` files have changed.

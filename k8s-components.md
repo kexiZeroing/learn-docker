@@ -48,24 +48,24 @@ StatefulSet
 ## K8s commands
 
 ### start minikube
-minikube start --driver=docker
-minikube status
-minikube ip
-minikube stop
+minikube start --driver=docker  
+minikube status  
+minikube ip  
+minikube stop  
 
-kubectl --help
+kubectl --help  
 kubectl apply -f [file-name.yaml]
 
 ### get basic info about k8s components
-kubectl get all
-kubectl get pod
-kubectl get pod -o wide
-kubectl get configmap
-kubectl get secret
-kubectl get svc
-kubectl get node
+kubectl get all  
+kubectl get pod  
+kubectl get pod -o wide  
+kubectl get configmap  
+kubectl get secret  
+kubectl get svc  
+kubectl get node  
 
-kubectl describe pod [podName]
+kubectl describe pod [podName]  
 kubectl describe service [sevName]
 
 ### view logs of container

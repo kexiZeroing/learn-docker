@@ -3,14 +3,16 @@
 - Open source container orchestration tool
 - Developed by Google
 - Helps manage containerized applications in different deployment environments
+- Offer high availability (no downtime), scalability (high performance), disaster recovery
 - `minikube` is a lightweight Kubernetes implementation that creates a VM on your local machine and deploys a simple cluster containing only one node
 - `kubectl` is a command line tool for k8s (for both Minikube cluster and Cloud cluster)
 
 Node
 - Virtual or physical machine
 - Mulitiple Master Nodes (control plane) and Worker Nodes (where applications are running)
-  
-  <img alt="k8s control" src="https://raw.githubusercontent.com/kexiZeroing/blog-images/main/008vOhrAly1hbbefhqcjej31k80r2djz.jpg" width="700">  
+- `kubelet` runs on each worker node and is the agent responsible for communicating with the master nodes. `kube-proxy` is a network proxy that runs on each node in cluster, implementing part of the Kubernetes Service concept.
+
+  <img alt="k8s-cluster" src="https://raw.githubusercontent.com/kexiZeroing/blog-images/main/008vOhrAly1hbgoz72n92j317w0sqwhd.jpg" width="700">  
 
 Pod
 - Smallest unit in k8s
@@ -44,6 +46,8 @@ Deployment
 StatefulSet
 - For stateful apps, like DBs
 - DB are often hosted outside of k8s cluster
+
+**Helm** is known as "the package manager for Kubernetes". The original goal of Helm was to provide users with a better way to manage all the Kubernetes YAML files. A Helm chart is a set of YAML manifests and templates that describes Kubernetes resources and defined configurations needed for the Kubernetes application, and is also easy to deploy in a Kubernetes cluster with just one command.
 
 ## K8s commands
 

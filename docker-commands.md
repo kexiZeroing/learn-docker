@@ -5,6 +5,8 @@ docker ps
 docker ps -a  
 docker run [image]  
 docker run -d -p 9000:80 nginx:1.23  
+docker run -it [image] sh    
+docker port [container]  
 docker start [container]  
 docker stop [container]  
 docker stop $(docker ps -a)  
@@ -18,6 +20,7 @@ docker rmi [image]
 ### create docker network
 docker network create [network]  
 docker network ls
+docker network inspect [network]
 
 ### start mongodb
 docker run -d \\  
@@ -63,6 +66,8 @@ The server needs to login to pull from a private repository. Login not needed fo
 
 ## Docker Desktop
 Docker Engine is the core product of Docker, including its daemon (dockerd) as well as its CLI (docker). 
+
+Docker Daemon is the background service running on the host that manages building, running and distributing Docker containers. The daemon is the process that runs in the operating system which clients talk to. Docker Client is the command line tool that allows the user to interact with the daemon.
 
 [Docker desktop](https://docs.docker.com/desktop) for both mac and windows is using a Linux virtual machine behind the scenes for running regular docker daemon. Docker Desktop can be used either on it’s own or as a complementary tool to the CLI.
 
